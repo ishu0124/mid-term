@@ -1,0 +1,83 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+    style.
+      body {
+        padding-top: 56px;
+      }
+      .container {
+        margin-top: 40px;
+      }
+      footer {
+        background-color: #f8f9fa;
+        color: #000;
+      }
+  body
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+      a.navbar-brand(href='#') MIDTERM EXAM
+
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive')
+        span.navbar-toggler-icon
+
+      #navbarResponsive.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+          li.nav-item
+            a.nav-link(href='#home') Home
+          li.nav-item
+            a.nav-link(href='#student') Student
+          li.nav-item
+            a.nav-link(href='#about') About
+          li.nav-item
+            a.nav-link(href='#contact') Contact
+
+    .container.mt-5
+      block content
+        .jumbotron
+          h1(class='display-4') Student Name
+          p(class='lead') My name is Parveen
+
+        // Home Content
+        block home
+          div(style='background-color: #3498db; color: #fff; min-height: 40vh; width: 100%;')
+            // Content goes here
+
+        // Student Block
+        block student
+          div(style='background-color: #2ecc71; color: #fff; min-height: 40vh; width: 100%;')
+            h2 Student
+            p My name is Parveen.
+
+        // About Block
+        block about
+          div(style='background-color: #e74c3c; color: #fff; min-height: 40vh; width: 100%;')
+            h2 About
+            p Im a programmer student.
+
+        // Contact Form
+        if title === 'Contacts'
+          div(style='background-color: #f39c12; color: #000; min-height: 40vh; width: 100%;')
+            form(action='/contacts/add', method='post', class='mt-4')
+              .form-group
+                label(for='firstName') First Name:
+                input(type='text', name='firstName', required=true, class='form-control')
+
+              .form-group
+                label(for='lastName') Last Name:
+                input(type='text', name='lastName', required=true, class='form-control')
+
+              .form-group
+                label(for='studentNumber') Student Number:
+                input(type='text', name='studentNumber', required=true, class='form-control')
+
+              .form-group
+                label(for='email') Email:
+                input(type='email', name='email', required=true, class='form-control')
+
+              button(type='submit', class='btn btn-success mt-3') Add Contact
+
+      // Footer
+      block footer
+        footer(class='footer mt-auto py-3 text-center bg-light')
+          | Student Name: Parveen Parveen | Student ID: 200533154
